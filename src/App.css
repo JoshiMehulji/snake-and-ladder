@@ -1,0 +1,106 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.text_one:nth-child(91){
+  font-size: 30px;
+  text-align: end;
+}
+
+#side{
+  height: 25vmin;
+  width: 80%;
+  border: 2px solid black;
+  background-color: #ffffcf;
+  text-align: center;
+  font-size: 3.5vmin;
+}
+#cube_outer{
+  height: 8vmin;
+  width: 8vmin;
+  perspective: 30vmin;
+  margin: auto;
+}
+#cube_inner{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: all 0.75s linear;
+}
+#cube_inner div{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+#front{
+  transform: translateZ(4vmin);
+}
+#back{
+  transform: rotateY(180deg) translateZ(4vmin);
+}
+#left{
+  transform: rotateY(-90deg) translateX(-4vmin);
+  transform-origin: left;
+}
+#right{
+  transform: rotateY(90deg) translateX(4vmin);
+  transform-origin: right;
+}
+#top{
+  transform: rotateX(-90deg) translateY(-4vmin);
+  transform-origin: top;
+}
+#bottom{
+  transform: rotateX(90deg) translateY(4vmin);
+  transform-origin: bottom;
+}
+
+
+@media only screen and (max-width: 480px) {
+  .text_one:nth-child(91){
+    font-size: 17px;
+    text-align: end;
+  }
+  #cube_outer{
+    height: 10vmin;
+    width: 10vmin;
+    perspective: 120vmin;
+    margin: auto;
+  }  
+}
