@@ -1,5 +1,11 @@
 import React from "react";
-import { blockData, ladderData, players, snakeData } from "./blockData";
+import {
+  blockData,
+  boxLayout,
+  ladderData,
+  players,
+  snakeData,
+} from "./blockData";
 import unicef from "../assets/united-nations-childrens-fund-unicef-vector-logo.png";
 import RSCERT from "../assets/RSCERT-logo.jpeg";
 import ladder from "../assets/ladder.png";
@@ -8,7 +14,8 @@ import player2 from "../assets/blue.png";
 import player3 from "../assets/green.png";
 import player4 from "../assets/black.png";
 
-const Layout = ({ checkLaddersAndSnakes, move, selected }) => {
+const Layout = ({ selected, setDirection }) => {
+
   return (
     <React.Fragment>
       <div className="grid gap-2">
@@ -61,14 +68,14 @@ const Layout = ({ checkLaddersAndSnakes, move, selected }) => {
                   src={player1}
                   alt={"red"}
                   className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{marginTop: "0vmin", marginLeft: "0vmin"}}
+                  style={{ marginTop: "0vmin", marginLeft: "0vmin" }}
                 />
                 <img
                   id={"blue"}
                   src={player2}
                   alt={"blue"}
                   className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{marginTop: "0vmin", marginLeft: "0vmin"}}
+                  style={{ marginTop: "0vmin", marginLeft: "0vmin" }}
                 />
               </>
             ) : selected === "three" ? (
@@ -78,21 +85,21 @@ const Layout = ({ checkLaddersAndSnakes, move, selected }) => {
                   src={player1}
                   alt={"red"}
                   className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{marginTop: "0vmin", marginLeft: "0vmin"}}
+                  style={{ marginTop: "0vmin", marginLeft: "0vmin" }}
                 />
                 <img
                   id={"blue"}
                   src={player2}
                   alt={"blue"}
                   className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{marginTop: "0vmin", marginLeft: "0vmin"}}
+                  style={{ marginTop: "0vmin", marginLeft: "0vmin" }}
                 />
                 <img
                   id={"green"}
                   src={player3}
                   alt={"green"}
                   className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{marginTop: "0vmin", marginLeft: "0vmin"}}
+                  style={{ marginTop: "0vmin", marginLeft: "0vmin" }}
                 />
               </>
             ) : (
@@ -102,28 +109,28 @@ const Layout = ({ checkLaddersAndSnakes, move, selected }) => {
                   src={player1}
                   alt={"red"}
                   className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{marginTop: "0vmin", marginLeft: "0vmin"}}
+                  style={{ marginTop: "0vmin", marginLeft: "0vmin" }}
                 />
                 <img
                   id={"blue"}
                   src={player2}
                   alt={"blue"}
                   className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{marginTop: "0vmin", marginLeft: "0vmin"}}
+                  style={{ marginTop: "0vmin", marginLeft: "0vmin" }}
                 />
                 <img
                   id={"green"}
                   src={player3}
                   alt={"green"}
                   className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{marginTop: "0vmin", marginLeft: "0vmin"}}
+                  style={{ marginTop: "0vmin", marginLeft: "0vmin" }}
                 />
                 <img
                   id={"black"}
                   src={player4}
                   alt={"black"}
                   className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{marginTop: "0vmin", marginLeft: "0vmin"}}
+                  style={{ marginTop: "0vmin", marginLeft: "0vmin" }}
                 />
               </>
             )}
@@ -140,7 +147,17 @@ const Layout = ({ checkLaddersAndSnakes, move, selected }) => {
             })} */}
           </div>
           <div className="grid grid-cols-10">
-            {[...Array(100)]?.map((item, i) => {
+            {boxLayout?.map((item, index) => {
+              return (
+                <div
+                  key={index}
+                  className="bg-[#ffffcf] border-[1px] border-[#e5c851] h-[40px] md:h-[51px] w-full px-1 font-bold first:text-[16px] text-[12px] md:text-[16px] first:md:text-[30px] first:text-center text_one"
+                >
+                  {item.value}
+                </div>
+              );
+            })}
+            {/* {[...Array(100)]?.map((item, i) => {
               let value = "";
               if (
                 String(i).length == 1 ||
@@ -159,7 +176,7 @@ const Layout = ({ checkLaddersAndSnakes, move, selected }) => {
                   <span className="relative z-[10]">{value}</span>
                 </p>
               );
-            })}
+            })} */}
           </div>
         </div>
         <div className="flex justify-around">

@@ -213,6 +213,7 @@ const handleRollEvent = async (e) => {
     });
   }
   function move(direction) {
+    console.log(direction)
     return new Promise(async (resolve, reject) => {
       new Audio(walkSound).play();
       // if (document.querySelector(`${turn}`)) {
@@ -236,12 +237,13 @@ const handleRollEvent = async (e) => {
 
   function getDirection() {
     let direction;
+    console.log(marginTop(), marginLeft(), ((marginTop() * 10) % (-16.4 * 10)) / 10)
     if (
-      (marginLeft() == 130.5 && ((marginTop() * 10) % (-8.6 * 10)) / 10 == 0) ||
-      (marginLeft() == 0 && ((marginTop() * 10) % (-8.6 * 10)) / 10 != 0)
+      (marginLeft() == 130.5 && ((marginTop() * 10) % (-16.4 * 10)) / 10 == 0) ||
+      (marginLeft() == 0 && ((marginTop() * 10) % (-16 * 10)) / 10 != 0)
     ) {
       direction = "up";
-    } else if (((marginTop() * 10) % (-8.6 * 10)) / 10 == 0) {
+    } else if (((marginTop() * 10) % (-16.4 * 10)) / 10 == 0) {
       direction = "right";
     } else {
       direction = "left";
