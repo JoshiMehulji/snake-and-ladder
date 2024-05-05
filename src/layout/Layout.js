@@ -8,7 +8,7 @@ import player2 from "../assets/blue.png";
 import player3 from "../assets/green.png";
 import player4 from "../assets/black.png";
 
-const Layout = ({ checkLaddersAndSnakes, move }) => {
+const Layout = ({ checkLaddersAndSnakes, move, selected }) => {
   return (
     <React.Fragment>
       <div className="grid gap-2">
@@ -54,30 +54,79 @@ const Layout = ({ checkLaddersAndSnakes, move }) => {
             })}
           </div>
           <div>
-            <img
-              id={"red"}
-              src={player1}
-              alt={"red"}
-              className="absolute w-[45px] bottom-1 left-4 mt-0 ml-0"
-            />
-            <img
-              id={"blue"}
-              src={player2}
-              alt={"blue"}
-              className="absolute w-[45px] bottom-1 left-4 mt-0 ml-0"
-            />
-            <img
-              id={"green"}
-              src={player3}
-              alt={"green"}
-              className="absolute w-[45px] bottom-1 left-4 mt-0 ml-0"
-            />
-            <img
-              id={"black"}
-              src={player4}
-              alt={"black"}
-              className="absolute w-[45px] bottom-1 left-4 mt-0 ml-0"
-            />
+            {selected === "two" ? (
+              <>
+                <img
+                  id={"red"}
+                  src={player1}
+                  alt={"red"}
+                  className="absolute w-[45px] top-[76vmin] left-4"
+                  style={{marginTop: "0vmin", marginLeft: "0vmin"}}
+                />
+                <img
+                  id={"blue"}
+                  src={player2}
+                  alt={"blue"}
+                  className="absolute w-[45px] top-[76vmin] left-4"
+                  style={{marginTop: "0vmin", marginLeft: "0vmin"}}
+                />
+              </>
+            ) : selected === "three" ? (
+              <>
+                <img
+                  id={"red"}
+                  src={player1}
+                  alt={"red"}
+                  className="absolute w-[45px] top-[76vmin] left-4"
+                  style={{marginTop: "0vmin", marginLeft: "0vmin"}}
+                />
+                <img
+                  id={"blue"}
+                  src={player2}
+                  alt={"blue"}
+                  className="absolute w-[45px] top-[76vmin] left-4"
+                  style={{marginTop: "0vmin", marginLeft: "0vmin"}}
+                />
+                <img
+                  id={"green"}
+                  src={player3}
+                  alt={"green"}
+                  className="absolute w-[45px] top-[76vmin] left-4"
+                  style={{marginTop: "0vmin", marginLeft: "0vmin"}}
+                />
+              </>
+            ) : (
+              <>
+                <img
+                  id={"red"}
+                  src={player1}
+                  alt={"red"}
+                  className="absolute w-[45px] top-[76vmin] left-4"
+                  style={{marginTop: "0vmin", marginLeft: "0vmin"}}
+                />
+                <img
+                  id={"blue"}
+                  src={player2}
+                  alt={"blue"}
+                  className="absolute w-[45px] top-[76vmin] left-4"
+                  style={{marginTop: "0vmin", marginLeft: "0vmin"}}
+                />
+                <img
+                  id={"green"}
+                  src={player3}
+                  alt={"green"}
+                  className="absolute w-[45px] top-[76vmin] left-4"
+                  style={{marginTop: "0vmin", marginLeft: "0vmin"}}
+                />
+                <img
+                  id={"black"}
+                  src={player4}
+                  alt={"black"}
+                  className="absolute w-[45px] top-[76vmin] left-4"
+                  style={{marginTop: "0vmin", marginLeft: "0vmin"}}
+                />
+              </>
+            )}
             {/* {players.map((item, index) => {
               return (
                 <img
@@ -85,7 +134,7 @@ const Layout = ({ checkLaddersAndSnakes, move }) => {
                   src={item?.icon}
                   key={index}
                   alt={item?.name}
-                  className="absolute w-[45px] bottom-1 left-4"
+                  className="absolute w-[45px] top-[76vmin] left-4"
                 />
               );
             })} */}

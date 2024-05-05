@@ -871,3 +871,1208 @@ export const snakeData = [
       icon: player4
     },
   ]
+
+
+  const boxLayout = [
+    {
+      "value": 1,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 2,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 3,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 4,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": true,
+        "climbTo": 39
+      },
+      "turn": "left"
+    },
+    {
+      "value": 5,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 6,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 7,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": true,
+        "climbTo": 36
+      },
+      "turn": "right"
+    },
+    {
+      "value": 8,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 9,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 10,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": true,
+        "climbTo": 21
+      },
+      "turn": "left"
+    },
+    {
+      "value": 11,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 12,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 13,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 14,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 15,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 16,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 17,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 18,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 19,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 20,
+      "snakeExist": {
+        "status": true,
+        "dropTo": 9
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 21,
+      "snakeExist": {
+        "status": true,
+        "dropTo": 3
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 22,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 23,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 24,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 25,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 26,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 27,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": true,
+        "climbTo": 65
+      },
+      "turn": "right"
+    },
+    {
+      "value": 28,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 29,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": true,
+        "climbTo": 68
+      },
+      "turn": "right"
+    },
+    {
+      "value": 30,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 31,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 32,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 33,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 34,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 35,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 36,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 37,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 38,
+      "snakeExist": {
+        "status": true,
+        "dropTo": 6
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 39,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 40,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 41,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 42,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 43,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 44,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": true,
+        "climbTo": 78
+      },
+      "turn": "left"
+    },
+    {
+      "value": 45,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 46,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 47,
+      "snakeExist": {
+        "status": true,
+        "dropTo": 8
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 48,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 49,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 50,
+      "snakeExist": {
+        "status": true,
+        "dropTo": 14
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 51,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 52,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": true,
+        "climbTo": 92
+      },
+      "turn": "left"
+    },
+    {
+      "value": 53,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 54,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 55,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 56,
+      "snakeExist": {
+        "status": true,
+        "dropTo": 17
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 57,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 58,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 59,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 60,
+      "snakeExist": {
+        "status": true,
+        "dropTo": 37
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 61,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 62,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 63,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 64,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 65,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 66,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 67,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": true,
+        "climbTo": 96
+      },
+      "turn": "right"
+    },
+    {
+      "value": 68,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 69,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 70,
+      "snakeExist": {
+        "status": true,
+        "dropTo": 31
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 71,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 72,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 73,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 74,
+      "snakeExist": {
+        "status": true,
+        "dropTo": 51
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 75,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 76,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 77,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": true,
+        "climbTo": 98
+      },
+      "turn": "right"
+    },
+    {
+      "value": 78,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 79,
+      "snakeExist": {
+        "status": true,
+        "dropTo": 39
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 80,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 81,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 82,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": true,
+        "climbTo": 99
+      },
+      "turn": "left"
+    },
+    {
+      "value": 83,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 84,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 85,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 86,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 87,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 88,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 89,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 90,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 91,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 92,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 93,
+      "snakeExist": {
+        "status": true,
+        "dropTo": 71
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 94,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 95,
+      "snakeExist": {
+        "status": true,
+        "dropTo": 68
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 96,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 97,
+      "snakeExist": {
+        "status": true,
+        "dropTo": 66
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+      "value": 98,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "left"
+    },
+    {
+      "value": 99,
+      "snakeExist": {
+        "status": false,
+        "dropTo": 0
+      },
+      "ladderExist": {
+        "status": false,
+        "climbTo": 0
+      },
+      "turn": "right"
+    },
+    {
+        "value": 100,
+        "snakeExist": {
+          "status": false,
+          "dropTo": 0
+        },
+        "ladderExist": {
+          "status": false,
+          "climbTo": 0
+        },
+        "turn": "right"
+      }
+  ]
+;
