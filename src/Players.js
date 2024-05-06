@@ -1,6 +1,6 @@
 import React from "react";
 
-const Players = ({ setPlayerSelected, setSelected }) => {
+const Players = ({ setPlayerSelected, setSelected, selected }) => {
   return (
     <React.Fragment>
       <div className="border-2 border-black bg-[#ffffcf] rounded-sm w-[500px] h-[250px]">
@@ -16,7 +16,7 @@ const Players = ({ setPlayerSelected, setSelected }) => {
                 localStorage.setItem("player", "two");
               }}
             >
-              <input type="radio" name="player" value="two" defaultChecked />
+              <input type="radio" name="player" value="two" />
               Two
             </label>
             <label
@@ -44,7 +44,11 @@ const Players = ({ setPlayerSelected, setSelected }) => {
             <button
               className="bg-black text-white cursor-pointer py-2 px-8 uppercase rounded-md font-semibold"
               onClick={() => {
-                setPlayerSelected(true);
+                if(selected){
+                  setPlayerSelected(true);
+                } else {
+                  alert('Please select players before starting the game.')
+                }
               }}
             >
               Start

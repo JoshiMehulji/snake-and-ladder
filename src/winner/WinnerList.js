@@ -1,27 +1,22 @@
 import React from "react";
 
-const WinnerList = () => {
+const WinnerList = ({ winners }) => {
   return (
     <React.Fragment>
       <div className="bg-[#ffffcf] border-2 border-black w-full p-4">
         <p className="text-center font-bold mb-4">Winners:</p>
         <div className="grid gap-2">
-          <p className="text-center flex gap-2 items-center">
-            <span className="font-bold">1.</span>
-            <span></span>
-          </p>
-          <p className="text-center flex gap-2 items-center">
-            <span className="font-bold">2.</span>
-            <span></span>
-          </p>
-          <p className="text-center flex gap-2 items-center">
-            <span className="font-bold">3.</span>
-            <span></span>
-          </p>
-          <p className="text-center flex gap-2 items-center">
-            <span className="font-bold">4.</span>
-            <span></span>
-          </p>
+          {Object.entries(winners)?.map((item, index) => {
+            console.log(item)
+            if (item[1]) {
+              return (
+                <p className="text-center flex gap-2 items-center justify-center font-black text-red-500">
+                  {/* <span className="font-bold">{index + 1}.</span> */}
+                  <span>{item[0]}</span>
+                </p>
+              );
+            }
+          })}
         </div>
       </div>
     </React.Fragment>

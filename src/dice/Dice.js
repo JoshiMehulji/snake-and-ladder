@@ -7,29 +7,11 @@ import dice5 from "../assets/Dice5.jpg";
 import dice6 from "../assets/Dice6.jpg";
 import diceRoll from "../assets/DiceRoll.mp3";
 import walkSound from "../assets/walk.mp3";
+import won from "../assets/won.mp3";
 
-const Dice = ({ selected }) => {
+const Dice = ({ selected, setShowModal, setModalText, winners, setWinners }) => {
   const [turn, setTurn] = useState("red");
   const [stopEvent, setStopEvent] = useState(false);
-  const [winners, setWinners] = useState(
-    localStorage.getItem("player") === "two"
-      ? {
-          red: false,
-          blue: false,
-        }
-      : localStorage.getItem("player") === "three"
-      ? {
-          red: false,
-          blue: false,
-          green: false,
-        }
-      : {
-          red: false,
-          blue: false,
-          green: false,
-          black: false,
-        }
-  );
 
 //   useEffect(() => {
     
@@ -74,9 +56,9 @@ const handleRollEvent = async (e) => {
 };
 
   function checkwin() {
-    if (marginTop() == -75 && marginLeft() == 0) {
-      document.querySelector("#p_turn").innerHTML = `${turn} player wins!`;
-      new Audio("won.mp3").play();
+    if (marginTop() == -77.4 && marginLeft() == 0) {
+      document.getElementById("p_turn").innerHTML = `${turn} player wins!`;
+      new Audio(won).play();
       return turn;
     } else {
       return "none";
@@ -86,8 +68,8 @@ const handleRollEvent = async (e) => {
   function checkRange(diceNum) {
     let isOutOfRange = false;
     if (
-      marginTop() == -75 &&
-      marginLeft() + Number((diceNum * -8).toFixed(1)) < 0
+      marginTop() == -77.4 &&
+      marginLeft() + Number((diceNum * -14.5).toFixed(1)) < 0
     ) {
       isOutOfRange = true;
     }
@@ -151,8 +133,8 @@ const handleRollEvent = async (e) => {
   function checkLaddersAndSnakes() {
     return new Promise(async (resolve, reject) => {
       let froms = [
-        [44, 0],
-        [58.8, 0],
+        [43.5, 0, "बॉडी टॉक नहीं करना चाहिए"],
+        [87, 0, "कक्षा में लड़के-लड़की शामिल बैठाने चाहिए"],
         [58.8, -19.6],
         [78.4, -19.6],
         [29.4, -39.2],
@@ -175,8 +157,8 @@ const handleRollEvent = async (e) => {
       ];
 
       let tos = [
-        [15, -25],
-        [39.2, -29.4],
+        [14.5, -25.8],
+        [58, -25.8],
         [39.2, -58.8],
         [68.6, -58.8],
         [19.6, -68.6],
@@ -199,6 +181,11 @@ const handleRollEvent = async (e) => {
       ];
       for (let i = 0; i < tos.length; i++) {
         if (marginLeft() == froms[i][0] && marginTop() == froms[i][1]) {
+          setShowModal(true);
+          setModalText(froms[i][2]);
+          // if(document.getElementById('modal-text')){
+          //   document.getElementById('modal-text').innerText = froms[i][2];
+          // }
           document.getElementById(
             `${turn}`
           ).style.marginLeft = `${tos[i][0]}vmin`;
@@ -213,21 +200,18 @@ const handleRollEvent = async (e) => {
     });
   }
   function move(direction) {
-    console.log(direction)
     return new Promise(async (resolve, reject) => {
       new Audio(walkSound).play();
       // if (document.querySelector(`${turn}`)) {
         if (direction == "up") {
           document.getElementById(`${turn}`).style.marginTop =
             String(marginTop() - 8.6) + "vmin";
-            console.log(String(marginTop() - 8) + "vmin")
         } else if (direction == "right") {
           document.getElementById(`${turn}`).style.marginLeft =
             String(marginLeft() + 14.5) + "vmin";
         } else if (direction == "left") {
           document.getElementById(`${turn}`).style.marginLeft =
             String(marginLeft() - 14.5) + "vmin";
-            console.log(String(marginLeft() - 14.5) + "vmin")
         }
       // }
       await new Promise((resolve) => setTimeout(resolve, 400));
@@ -237,13 +221,12 @@ const handleRollEvent = async (e) => {
 
   function getDirection() {
     let direction;
-    console.log(marginTop(), marginLeft(), ((marginTop() * 10) % (-16.4 * 10)) / 10)
     if (
-      (marginLeft() == 130.5 && ((marginTop() * 10) % (-16.4 * 10)) / 10 == 0) ||
-      (marginLeft() == 0 && ((marginTop() * 10) % (-16 * 10)) / 10 != 0)
+      (marginLeft() == 130.5 && ((marginTop() * 10) % (-17.2 * 10)) / 10 == 0) ||
+      (marginLeft() == 0 && ((marginTop() * 10) % (-17.2 * 10)) / 10 != 0)
     ) {
       direction = "up";
-    } else if (((marginTop() * 10) % (-16.4 * 10)) / 10 == 0) {
+    } else if (((marginTop() * 10) % (-17.2 * 10)) / 10 == 0) {
       direction = "right";
     } else {
       direction = "left";
@@ -286,7 +269,7 @@ const handleRollEvent = async (e) => {
   }
 
   return (
-    <div id="side" onMouseDown={(e)=>handleRollEvent(e)}>
+    <div id="side" className="cursor-pointer" onMouseDown={(e)=>handleRollEvent(e)}>
       <p id="p_turn" className="font-semibold">
         Red player's turn
       </p>
@@ -317,3 +300,5 @@ const handleRollEvent = async (e) => {
 };
 
 export default Dice;
+// (marginLeft() == 130.5 && ((marginTop() * 10) % (-16.4 * 10)) / 10 == 0) ||
+//       (marginLeft() == 0 && ((marginTop() * 10) % (-16.4 * 10)) / 10 != 0)
