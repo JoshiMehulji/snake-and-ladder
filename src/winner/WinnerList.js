@@ -7,7 +7,6 @@ const WinnerList = ({ winners }) => {
         <p className="text-center font-bold mb-4">Winners:</p>
         <div className="grid gap-2">
           {Object.entries(winners)?.map((item, index) => {
-            console.log(item)
             if (item[1]) {
               return (
                 <p className="text-center flex gap-2 items-center justify-center font-black text-red-500">

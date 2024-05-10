@@ -68,14 +68,14 @@ const Layout = ({ selected, setDirection }) => {
                   src={player1}
                   alt={"red"}
                   className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{ marginTop: "0vmin", marginLeft: "0vmin" }}
+                  style={{ marginTop: "0vmin", marginLeft: "-14.5vmin" }}
                 />
                 <img
                   id={"blue"}
                   src={player2}
                   alt={"blue"}
                   className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{ marginTop: "0vmin", marginLeft: "0vmin" }}
+                  style={{ marginTop: "0vmin", marginLeft: "-14.5vmin" }}
                 />
               </>
             ) : selected === "three" ? (
@@ -85,21 +85,21 @@ const Layout = ({ selected, setDirection }) => {
                   src={player1}
                   alt={"red"}
                   className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{ marginTop: "0vmin", marginLeft: "0vmin" }}
+                  style={{ marginTop: "0vmin", marginLeft: "-14.5vmin" }}
                 />
                 <img
                   id={"blue"}
                   src={player2}
                   alt={"blue"}
                   className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{ marginTop: "0vmin", marginLeft: "0vmin" }}
+                  style={{ marginTop: "0vmin", marginLeft: "-14.5vmin" }}
                 />
                 <img
                   id={"green"}
                   src={player3}
                   alt={"green"}
                   className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{ marginTop: "0vmin", marginLeft: "0vmin" }}
+                  style={{ marginTop: "0vmin", marginLeft: "-14.5vmin" }}
                 />
               </>
             ) : (
@@ -109,28 +109,28 @@ const Layout = ({ selected, setDirection }) => {
                   src={player1}
                   alt={"red"}
                   className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{ marginTop: "0vmin", marginLeft: "0vmin" }}
+                  style={{ marginTop: "0vmin", marginLeft: "-14.5vmin" }}
                 />
                 <img
                   id={"blue"}
                   src={player2}
                   alt={"blue"}
                   className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{ marginTop: "0vmin", marginLeft: "0vmin" }}
+                  style={{ marginTop: "0vmin", marginLeft: "-14.5vmin" }}
                 />
                 <img
                   id={"green"}
                   src={player3}
                   alt={"green"}
                   className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{ marginTop: "0vmin", marginLeft: "0vmin" }}
+                  style={{ marginTop: "0vmin", marginLeft: "-14.5vmin" }}
                 />
                 <img
                   id={"black"}
                   src={player4}
                   alt={"black"}
-                  className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{ marginTop: "0vmin", marginLeft: "0vmin" }}
+                  className="absolute w-[45px] top-[76vmin] left-4 z-10"
+                  style={{ marginTop: "0vmin", marginLeft: "-14.5vmin" }}
                 />
               </>
             )}

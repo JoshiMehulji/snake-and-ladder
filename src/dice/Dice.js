@@ -12,6 +12,7 @@ import won from "../assets/won.mp3";
 const Dice = ({ selected, setShowModal, setModalText, winners, setWinners }) => {
   const [turn, setTurn] = useState("red");
   const [stopEvent, setStopEvent] = useState(false);
+  const [turnMessage, setTurnMessage] = useState("Red player's turn")
 
 //   useEffect(() => {
     
@@ -23,47 +24,99 @@ const Dice = ({ selected, setShowModal, setModalText, winners, setWinners }) => 
 //     };
 // }, []);
 
+// const handleRollEvent = async (e) => {
+//   if (e.button === 0 && !stopEvent) {
+//       setStopEvent(true);
+//       try {
+//           const diceNum = await roll();
+//           const isOutOfRange = checkRange(diceNum);
+//           // Delay before running the dice
+//           await new Promise((resolve) => setTimeout(resolve, 400));
+
+//           if (!isOutOfRange) {
+//               await run(diceNum);
+//           }
+
+//           const wonBy = checkwin();
+//           console.log(wonBy)
+//           if (wonBy === "none") {
+//               changeTurn(turn, winners);
+//           } else {
+//             console.log(winners[wonBy])
+//               if (!winners[wonBy]) {
+//                 let winList = {...winners, [wonBy]: true};
+//                   setWinners((prev)=> ({...prev, [wonBy]: true }));
+//                   changeTurn(turn, winList);
+//               }
+//           }
+//       } catch (error) {
+//           console.error("Error handling roll event:", error);
+//       } finally {
+//           // Delay after running the dice
+//           await new Promise((resolve) => setTimeout(resolve, 400));
+//           setStopEvent(false);
+//       }
+//   }
+// };
+
 const handleRollEvent = async (e) => {
-  if (e.button === 0 && !stopEvent) {
-      setStopEvent(true);
-      try {
-          const diceNum = await roll();
-          const isOutOfRange = checkRange(diceNum);
-          // Delay before running the dice
-          await new Promise((resolve) => setTimeout(resolve, 400));
-
-          if (!isOutOfRange) {
-              await run(diceNum);
-          }
-
-          const wonBy = checkwin();
-          if (wonBy === "none") {
-              changeTurn();
-          } else {
-              if (!winners[wonBy]) {
-                  setWinners({ ...winners, [wonBy]: true });
-                  changeTurn();
-              }
-          }
-      } catch (error) {
-          console.error("Error handling roll event:", error);
-      } finally {
-          // Delay after running the dice
-          await new Promise((resolve) => setTimeout(resolve, 400));
-          setStopEvent(false);
+  if (!stopEvent) {
+    setStopEvent(true);
+    try {
+      const diceNum = await roll();
+      const isOutOfRange = checkRange(diceNum);
+      
+      // Delay before running the dice
+      await new Promise((resolve) => setTimeout(resolve, 400));
+      
+      if (!isOutOfRange) {
+        await run(diceNum);
       }
+      
+      const wonBy = checkwin();
+      
+      if (wonBy === "none") {
+        changeTurn(winners);
+      } else {
+        if (!winners[wonBy]) {
+          const updatedWinners = { ...winners, [wonBy]: true };
+          setWinners(updatedWinners);
+          changeTurn(updatedWinners);
+        } else {
+          // Skip turn if the player has already won
+          setStopEvent(false);
+        }
+      }
+    } catch (error) {
+      console.error("Error handling roll event:", error);
+    } finally {
+      // Delay after running the dice
+      await new Promise((resolve) => setTimeout(resolve, 400));
+      setStopEvent(false);
+    }
   }
 };
 
-  function checkwin() {
-    if (marginTop() == -77.4 && marginLeft() == 0) {
-      document.getElementById("p_turn").innerHTML = `${turn} player wins!`;
-      new Audio(won).play();
-      return turn;
-    } else {
-      return "none";
-    }
+function checkwin() {
+  if (marginTop() === -77.4 && marginLeft() === 0) {
+    // Assuming "turn" is a state variable
+    setTurnMessage(`${turn} player wins!`);
+    new Audio(won).play();
+    return turn;
+  } else {
+    return "none";
   }
+}
+
+  // function checkwin() {
+  //   if (marginTop() == -77.4 && marginLeft() == 0) {
+  //     document.getElementById("p_turn").innerHTML = `${turn} player wins!`;
+  //     new Audio(won).play();
+  //     return turn;
+  //   } else {
+  //     return "none";
+  //   }
+  // }
 
   function checkRange(diceNum) {
     let isOutOfRange = false;
@@ -76,48 +129,106 @@ const handleRollEvent = async (e) => {
     return isOutOfRange;
   }
 
-  function changeTurn() {
-    // if (turn) {
+  function changeTurn(finalWin) {
+    let currentPlayer = turn;
     let nextPlayer = "";
     let nextTurn = "";
 
-    do {
-      switch (turn) {
-        case "red":
-          nextTurn = "blue";
-          break;
-        case "blue":
-          nextTurn = localStorage.getItem("player") === "two" ? "red" : "green";
-          break;
-        case "green":
-          nextTurn =
-            localStorage.getItem("player") === "three" ? "red" : "black";
-          break;
-        case "black":
-          nextTurn = "red";
-          break;
-      }
-    } while (winners[turn]);
-    setTurn(nextTurn);
-
-    // Update the turn display
-    switch (nextTurn) {
-      case "red":
-        nextPlayer = "Red player's turn";
-        break;
-      case "blue":
-        nextPlayer = "Blue player's turn"
-        break;
-      case "green":
-        nextPlayer = "Green player's turn";
-        break;
-      case "black":
-        nextPlayer = "Black player's turn";
-        break;
-    }
-    document.querySelector("#p_turn").innerHTML = nextPlayer;
+    // if (finalWin[turn]) {
+    //   setStopEvent(false);
+    //   return;
     // }
+  
+    const playerCount = Object.keys(finalWin).length;
+
+    do {
+      switch (currentPlayer) {
+          case "red":
+              nextTurn = "blue";
+              break;
+          case "blue":
+              nextTurn = playerCount === 2 ? "red" : "green";
+              break;
+          case "green":
+              nextTurn = playerCount === 3 ? "red" : "black";
+              break;
+          case "black":
+              nextTurn = "red";
+              break;
+          default:
+              nextTurn = "red";
+              break;
+      }
+
+      currentPlayer = nextTurn;
+
+  } while (finalWin[currentPlayer]);
+
+    switch (nextTurn) {
+        case "red":
+            nextPlayer = "Red player's turn";
+            break;
+        case "blue":
+            nextPlayer = "Blue player's turn";
+            break;
+        case "green":
+            nextPlayer = "Green player's turn";
+            break;
+        case "black":
+            nextPlayer = "Black player's turn";
+            break;
+        default:
+            nextPlayer = "Red player's turn"; // Default to "red" if unexpected value
+            break;
+    }
+    setTurn(nextTurn);
+    setTurnMessage(nextPlayer);
   }
+
+  // function changeTurn(playerTurn, finalWin) {
+  //   console.log(finalWin)
+  //   // if (turn) {
+  //   let nextPlayer = "";
+  //   let nextTurn = "";
+
+  //   do {
+  //     switch (playerTurn) {
+  //       case "red":
+  //         nextTurn = "blue";
+  //         break;
+  //       case "blue":
+  //         nextTurn = localStorage.getItem("player") === "two" ? "red" : "green";
+  //         break;
+  //       case "green":
+  //         nextTurn =
+  //           localStorage.getItem("player") === "three" ? "red" : "black";
+  //         break;
+  //       case "black":
+  //         nextTurn = "red";
+  //         break;
+  //     }
+  //   } while (finalWin[playerTurn]);
+
+  //   // Update the turn display
+  //   switch (nextTurn) {
+  //     case "red":
+  //       nextPlayer = "Red player's turn";
+  //       break;
+  //     case "blue":
+  //       nextPlayer = "Blue player's turn"
+  //       break;
+  //     case "green":
+  //       nextPlayer = "Green player's turn";
+  //       break;
+  //     case "black":
+  //       nextPlayer = "Black player's turn";
+  //       break;
+  //   }
+  //   document.querySelector("#p_turn").innerHTML = nextPlayer;
+  //   setTurn(nextTurn);
+
+  //   // }
+  // }
 
   function run(diceNum) {
     return new Promise(async (resolve, reject) => {
@@ -144,18 +255,18 @@ const handleRollEvent = async (e) => {
         [43.5,-60.2,"हर रूप रंग के व्यक्ति का सम्मान करें"],
         [14.5,-68.8,"सभी कॉमिक्स के सन्देश समझ कर अमल कर रहे है"],
         // snake below
-        [0,-17.2,"गोरा होने के लिए क्रीम जरुरी है"],
-        [29,-25.8,"पानी भरना केवल लड़को का काम है"],
-        [87,-34.4,"किसी के शरीर से जुडी बात कहना"],
-        [130.5,-34.4,"वह मोटी है दौड़ नहीं सकेगी"],
-        [58,-43,"गाड़ी चलाना लड़को का काम है"],
-        [130.5,-51.6,"शेर जैसा बालक"],
-        [0,-43,"हिरनी जैसी चाल"],
-        [14.5,-60.2,"रंग-रूप, कद-काठी, से शिक्षा में बाधा है "],
-        [87,-60.2,"छोटा कद कार्य में बाधक है"],
-        [43.5,-77.4,"घर का कार्य लड़कियाँ ही कर सकती है।"],
-        [72.5,-77.4,"लड़के-लड़की में भेद करना"],
-        [101.5,-77.4,"कपड़े धोने का काम लड़के ही कर सकते है"],
+        // [0,-17.2,"गोरा होने के लिए क्रीम जरुरी है"],
+        // [29,-25.8,"पानी भरना केवल लड़को का काम है"],
+        // [87,-34.4,"किसी के शरीर से जुडी बात कहना"],
+        // [130.5,-34.4,"वह मोटी है दौड़ नहीं सकेगी"],
+        // [58,-43,"गाड़ी चलाना लड़को का काम है"],
+        // [130.5,-51.6,"शेर जैसा बालक"],
+        // [0,-43,"हिरनी जैसी चाल"],
+        // [14.5,-60.2,"रंग-रूप, कद-काठी, से शिक्षा में बाधा है "],
+        // [87,-60.2,"छोटा कद कार्य में बाधक है"],
+        // [43.5,-77.4,"घर का कार्य लड़कियाँ ही कर सकती है।"],
+        // [72.5,-77.4,"लड़के-लड़की में भेद करना"],
+        // [101.5,-77.4,"कपड़े धोने का काम लड़के ही कर सकते है"],
       ];
 
       let tos = [
@@ -170,18 +281,18 @@ const handleRollEvent = async (e) => {
         [29,-77.4],
         [14.5,-77.4],
         // // snake below
-        [29,0],
-        [72.5, 0],
-        [101.5, 0],
-        [87,-8.6],
-        [43.5,-8.6],
-        [130.5,-25.8],
-        [43.5,-25.8],
-        [14.5,-25.8],
-        [130.5,-43],
-        [72.5,-51.6],
-        [101.5,51.6],
-        [130.5,-60.2],
+        // [29,0],
+        // [72.5, 0],
+        // [101.5, 0],
+        // [87,-8.6],
+        // [43.5,-8.6],
+        // [130.5,-25.8],
+        // [43.5,-25.8],
+        // [14.5,-25.8],
+        // [130.5,-43],
+        // [72.5,-51.6],
+        // [101.5,-51.6],
+        // [130.5,-60.2],
       ];
       for (let i = 0; i < tos.length; i++) {
         if (marginLeft() == froms[i][0] && marginTop() == froms[i][1]) {
@@ -273,9 +384,9 @@ const handleRollEvent = async (e) => {
   }
 
   return (
-    <div id="side" className="cursor-pointer" onMouseDown={(e)=>handleRollEvent(e)}>
+    <div id="side" className="cursor-pointer" onClick={(e)=>handleRollEvent(e)}>
       <p id="p_turn" className="font-semibold">
-        Red player's turn
+        {turnMessage}
       </p>
       <div id="cube_outer">
         <div id="cube_inner" className="mt-4">
