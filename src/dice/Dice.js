@@ -12,7 +12,8 @@ import won from "../assets/won.mp3";
 const Dice = ({ selected, setShowModal, setModalText, winners, setWinners }) => {
   const [turn, setTurn] = useState("red");
   const [stopEvent, setStopEvent] = useState(false);
-  const [turnMessage, setTurnMessage] = useState("Red player's turn")
+  const [turnMessage, setTurnMessage] = useState("Red player's turn");
+  const [cubeStyle, setCubeStyle] = useState('');
 
 //   useEffect(() => {
     
@@ -76,6 +77,9 @@ const handleRollEvent = async (e) => {
       const wonBy = checkwin();
       
       if (wonBy === "none") {
+        if(diceNum == 6){
+          return;
+        }
         changeTurn(winners);
       } else {
         if (!winners[wonBy]) {
@@ -139,7 +143,7 @@ function checkwin() {
     //   return;
     // }
   
-    const playerCount = Object.keys(finalWin).length;
+    const playerCount = Object?.keys(finalWin).length;
 
     do {
       switch (currentPlayer) {
@@ -255,18 +259,18 @@ function checkwin() {
         [43.5,-60.2,"हर रूप रंग के व्यक्ति का सम्मान करें"],
         [14.5,-68.8,"सभी कॉमिक्स के सन्देश समझ कर अमल कर रहे है"],
         // snake below
-        // [0,-17.2,"गोरा होने के लिए क्रीम जरुरी है"],
-        // [29,-25.8,"पानी भरना केवल लड़को का काम है"],
-        // [87,-34.4,"किसी के शरीर से जुडी बात कहना"],
-        // [130.5,-34.4,"वह मोटी है दौड़ नहीं सकेगी"],
-        // [58,-43,"गाड़ी चलाना लड़को का काम है"],
-        // [130.5,-51.6,"शेर जैसा बालक"],
-        // [0,-43,"हिरनी जैसी चाल"],
-        // [14.5,-60.2,"रंग-रूप, कद-काठी, से शिक्षा में बाधा है "],
-        // [87,-60.2,"छोटा कद कार्य में बाधक है"],
-        // [43.5,-77.4,"घर का कार्य लड़कियाँ ही कर सकती है।"],
-        // [72.5,-77.4,"लड़के-लड़की में भेद करना"],
-        // [101.5,-77.4,"कपड़े धोने का काम लड़के ही कर सकते है"],
+        [0,-17.2,"गोरा होने के लिए क्रीम जरुरी है"],
+        [29,-25.8,"पानी भरना केवल लड़को का काम है"],
+        [87,-34.4,"किसी के शरीर से जुडी बात कहना"],
+        [130.5,-34.4,"वह मोटी है दौड़ नहीं सकेगी"],
+        [58,-43,"गाड़ी चलाना लड़को का काम है"],
+        [130.5,-51.6,"शेर जैसा बालक"],
+        [0,-43,"हिरनी जैसी चाल"],
+        [14.5,-60.2,"रंग-रूप, कद-काठी, से शिक्षा में बाधा है "],
+        [87,-60.2,"छोटा कद कार्य में बाधक है"],
+        [43.5,-77.4,"घर का कार्य लड़कियाँ ही कर सकती है।"],
+        [72.5,-77.4,"लड़के-लड़की में भेद करना"],
+        [101.5,-77.4,"कपड़े धोने का काम लड़के ही कर सकते है"],
       ];
 
       let tos = [
@@ -281,18 +285,18 @@ function checkwin() {
         [29,-77.4],
         [14.5,-77.4],
         // // snake below
-        // [29,0],
-        // [72.5, 0],
-        // [101.5, 0],
-        // [87,-8.6],
-        // [43.5,-8.6],
-        // [130.5,-25.8],
-        // [43.5,-25.8],
-        // [14.5,-25.8],
-        // [130.5,-43],
-        // [72.5,-51.6],
-        // [101.5,-51.6],
-        // [130.5,-60.2],
+        [29,0],
+        [72.5, 0],
+        [101.5, 0],
+        [87,-8.6],
+        [43.5,-8.6],
+        [130.5,-25.8],
+        [43.5,-25.8],
+        [14.5,-25.8],
+        [130.5,-43],
+        [72.5,-51.6],
+        [101.5,-51.6],
+        [130.5,-60.2],
       ];
       for (let i = 0; i < tos.length; i++) {
         if (marginLeft() == froms[i][0] && marginTop() == froms[i][1]) {
@@ -372,12 +376,16 @@ function checkwin() {
         [90, 90],
       ];
       new Audio(diceRoll).play();
-      document.querySelector("#cube_inner").style.transform =
-        "rotateX(360deg) rotateY(360deg)";
+      setCubeStyle("rotateX(360deg) rotateY(360deg)");
+      // document.getElementById("cube_inner").style.transform =
+      //   "rotateX(360deg) rotateY(360deg)";
       await new Promise((resolve) => setTimeout(resolve, 750));
-      document.querySelector("#cube_inner").style.transform = `rotateX(${
+      // document.getElementById("cube_inner").style.transform = `rotateX(${
+      //   values[diceNum - 1][0]
+      // }deg) rotateY(${values[diceNum - 1][1]}deg)`;
+      setCubeStyle(`rotateX(${
         values[diceNum - 1][0]
-      }deg) rotateY(${values[diceNum - 1][1]}deg)`;
+      }deg) rotateY(${values[diceNum - 1][1]}deg)`);
       await new Promise((resolve) => setTimeout(resolve, 750));
       resolve(diceNum);
     });
@@ -389,7 +397,7 @@ function checkwin() {
         {turnMessage}
       </p>
       <div id="cube_outer">
-        <div id="cube_inner" className="mt-4">
+        <div id="cube_inner" className="mt-4" style={{transform: cubeStyle}}>
           <div id="front">
             <img src={dice1} />
           </div>

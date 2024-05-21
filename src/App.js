@@ -51,7 +51,7 @@ function App() {
               <WinnerList winners={winners} setWinners={setWinners} />
             </div>
             <div className="md:hidden w-[50%]">
-              <Dice />
+              <Dice selected={selected} direction={direction} setShowModal={setShowModal} setModalText={setModalText} winners={winners} setWinners={setWinners} />
             </div>
           </div>
         </div>
