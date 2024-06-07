@@ -15,16 +15,15 @@ import player3 from "../assets/green.png";
 import player4 from "../assets/black.png";
 
 const Layout = ({ selected, setDirection }) => {
-
   return (
     <React.Fragment>
       <div className="grid gap-2">
-        <div>
+        {/* <div>
           <p className="text-red-500 md:text-xl font-bold italic flex justify-around">
             <span>आओ खेलें</span>
             <span> सेल्फ एस्टीम एंड बॉडी कॉन्फिडेंस</span>
           </p>
-        </div>
+        </div> */}
         <div className="border-2 border-black relative">
           <div>
             {ladderData?.map((item, index) => {
@@ -153,7 +152,9 @@ const Layout = ({ selected, setDirection }) => {
                   key={index}
                   className="bg-[#ffffcf] border-[1px] border-[#e5c851] h-[40px] md:h-[51px] w-full px-1 font-bold first:text-[16px] text-[12px] md:text-[16px] first:md:text-[30px] first:text-center text_one"
                 >
+                  <span className="relative z-10 text-[#212121]">
                   {item.value}
+                  </span>
                 </div>
               );
             })}
@@ -179,7 +180,7 @@ const Layout = ({ selected, setDirection }) => {
             })} */}
           </div>
         </div>
-        <div className="flex justify-around">
+        {/* <div className="flex justify-around">
           <img
             src={RSCERT}
             alt="RSCERT"
@@ -193,7 +194,7 @@ const Layout = ({ selected, setDirection }) => {
             alt="unicef"
             className="w-[100px] h-[30px] object-contain"
           />
-        </div>
+        </div> */}
       </div>
     </React.Fragment>
   );

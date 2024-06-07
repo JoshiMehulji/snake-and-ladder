@@ -1,10 +1,11 @@
+import clsx from "clsx";
 import React, { useEffect } from "react";
 
-const Modal = ({ setShowModal, modalText }) => {
+const Modal = ({ setShowModal, modalText, modalTextColor }) => {
   useEffect(() => {
     setTimeout(() => {
       setShowModal(false);
-    }, 5000);
+    }, 500);
   }, []);
 
   return (
@@ -14,7 +15,7 @@ const Modal = ({ setShowModal, modalText }) => {
           <div className="bg-[#fffff6] border-2 border-black rounded-[20px] h-[200px] w-[90%] md:w-[400px] flex items-center justify-center p-6">
             <p
               id="modal-text"
-              className="font-bold text-[20px] md:text-[24px] text-center text-red-500 italic"
+              className={clsx("font-bold text-[20px] md:text-[24px] text-center italic", modalTextColor === "green" ? "text-green-500" : "text-red-500")}
             >{modalText}</p>
           </div>
         </div>

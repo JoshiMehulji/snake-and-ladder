@@ -13,6 +13,7 @@ function App() {
   const [direction, setDirection] = useState("right");
   const [showModal, setShowModal] = useState(false);
   const [modalText, setModalText] = useState("");
+  const [modalTextColor, setModalTextColor] = useState("red");
   const [winners, setWinners] = useState(
     localStorage.getItem("player") === "two"
       ? {
@@ -35,15 +36,22 @@ function App() {
 
   return (
     <React.Fragment>
-      {showModal && (
-        <Modal setShowModal={setShowModal} modalText={modalText} />
-      )}
+      {showModal && <Modal setShowModal={setShowModal} modalText={modalText} modalTextColor={modalTextColor} />}
       {playerSelected ? (
-        <div className="flex flex-col md:flex-row justify-between p-2 gap-4">
+        <div className="flex flex-col md:flex-row justify-between p-2 gap-4 h-screen">
           <div className="w-[15%] hidden md:flex items-center">
-            <Dice selected={selected} direction={direction} setShowModal={setShowModal} setModalText={setModalText} winners={winners} setWinners={setWinners} />
+            <Dice
+              selected={selected}
+              direction={direction}
+              setShowModal={setShowModal}
+              setModalText={setModalText}
+              winners={winners}
+              setWinners={setWinners}
+              setPlayerSelected={setPlayerSelected}
+              setModalTextColor={setModalTextColor}
+            />
           </div>
-          <div className="md:w-[70%] overflow-hidden">
+          <div className="md:w-[70%] overflow-hidden m-auto">
             <Layout selected={selected} setDirection={setDirection} />
           </div>
           <div className="md:w-[15%] flex items-center gap-4">
@@ -51,7 +59,16 @@ function App() {
               <WinnerList winners={winners} setWinners={setWinners} />
             </div>
             <div className="md:hidden w-[50%]">
-              <Dice selected={selected} direction={direction} setShowModal={setShowModal} setModalText={setModalText} winners={winners} setWinners={setWinners} />
+              <Dice
+                selected={selected}
+                direction={direction}
+                setShowModal={setShowModal}
+                setModalText={setModalText}
+                winners={winners}
+                setWinners={setWinners}
+                setPlayerSelected={setPlayerSelected}
+                setModalTextColor={setModalTextColor}
+              />
             </div>
           </div>
         </div>
