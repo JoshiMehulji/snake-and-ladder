@@ -5,7 +5,7 @@ const Modal = ({ setShowModal, modalText, modalTextColor }) => {
   useEffect(() => {
     setTimeout(() => {
       setShowModal(false);
-    }, 500);
+    }, 5000);
   }, []);
 
   return (
