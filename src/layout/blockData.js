@@ -816,17 +816,17 @@ export const blockData = [
 
 export const ladderData = [
   {
-    transform: "scaleX(0.45) scaleY(0.50) rotate(-45deg)",
+    transform: "scaleX(0.4) scaleY(0.55) rotate(-50deg)",
     top: "29%",
     left: "-25%",
   },
   {
-    transform: "scaleX(0.38) scaleY(0.55) rotate(-50deg)",
-    top: "28%",
+    transform: "scaleX(0.4) scaleY(0.55) rotate(130deg)",
+    top: "31%",
     left: "5%",
   },
   {
-    transform: "scaleX(0.4) scaleY(0.8) rotate3d(1, 1, 1, -68deg)",
+    transform: "scaleX(0.5) scaleY(0.8) rotate3d(1, 1, 1, -68deg)",
     top: "4%",
     left: "5%",
   },
@@ -836,27 +836,27 @@ export const ladderData = [
     left: "30%",
   },
   {
-    transform: "scaleX(0.3) scaleY(0.37) rotate(-21deg)",
+    transform: "scaleX(0.45) scaleY(0.37) rotate(-21deg)",
     top: "-10%",
     left: "-20%",
   },
   {
-    transform: "scaleX(0.3) scaleY(0.45) rotate(0deg)",
+    transform: "scaleX(0.4) scaleY(0.45) rotate(0deg)",
     top: "-25%",
     left: "37%",
   },
   {
-    transform: "scaleX(0.35) scaleY(1.1) rotate3d(1, 1, 1, -90deg)",
-    top: "-30%",
+    transform: "scaleX(0.4) scaleY(0.55) rotate(130deg)",
+    top: "-29%",
     left: "5%",
   },
   {
-    transform: "scaleX(0.3) scaleY(0.25) rotate(-23deg)",
+    transform: "scaleX(0.4) scaleY(0.25) rotate(-23deg)",
     top: "-35%",
     left: "-20%",
   },
   {
-    transform: "scaleX(0.3) scaleY(0.15) rotate(0deg)",
+    transform: "scaleX(0.4) scaleY(0.2) rotate(0deg)",
     top: "-40%",
     left: "-34%",
   },

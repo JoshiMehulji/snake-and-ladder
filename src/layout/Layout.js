@@ -13,6 +13,8 @@ import player1 from "../assets/red.png";
 import player2 from "../assets/blue.png";
 import player3 from "../assets/green.png";
 import player4 from "../assets/black.png";
+import aadahIcon from "../assets/aadha.jpeg";
+import upIcon from "../assets/down-arrow.png";
 
 const Layout = ({ selected, setDirection }) => {
   return (
@@ -32,7 +34,7 @@ const Layout = ({ selected, setDirection }) => {
                   src={ladder}
                   key={index}
                   alt="ladder"
-                  className={`absolute h-full w-full object-contain`}
+                  className={`absolute h-full w-full object-contain z-10`}
                   style={{
                     transform: item?.transform,
                     top: item?.top,
@@ -49,7 +51,7 @@ const Layout = ({ selected, setDirection }) => {
                   src={item?.snake}
                   key={index}
                   alt="ladder"
-                  className={`absolute h-full w-full object-contain`}
+                  className={`absolute h-full w-full object-contain z-10`}
                   style={{
                     transform: item?.transform,
                     top: item?.top,
@@ -66,15 +68,23 @@ const Layout = ({ selected, setDirection }) => {
                   id={"red"}
                   src={player1}
                   alt={"red"}
-                  className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{ marginTop: "0vmin", marginLeft: "-14.5vmin" }}
+                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20"
+                  style={{
+                    marginTop: "0vmin",
+                    marginLeft:
+                      window.innerWidth < 480 ? "-13vmin" : "-14.5vmin",
+                  }}
                 />
                 <img
                   id={"blue"}
                   src={player2}
                   alt={"blue"}
-                  className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{ marginTop: "0vmin", marginLeft: "-14.5vmin" }}
+                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20"
+                  style={{
+                    marginTop: "0vmin",
+                    marginLeft:
+                      window.innerWidth < 480 ? "-13vmin" : "-14.5vmin",
+                  }}
                 />
               </>
             ) : selected === "three" ? (
@@ -83,22 +93,34 @@ const Layout = ({ selected, setDirection }) => {
                   id={"red"}
                   src={player1}
                   alt={"red"}
-                  className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{ marginTop: "0vmin", marginLeft: "-14.5vmin" }}
+                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20"
+                  style={{
+                    marginTop: "0vmin",
+                    marginLeft:
+                      window.innerWidth < 480 ? "-13vmin" : "-14.5vmin",
+                  }}
                 />
                 <img
                   id={"blue"}
                   src={player2}
                   alt={"blue"}
-                  className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{ marginTop: "0vmin", marginLeft: "-14.5vmin" }}
+                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20"
+                  style={{
+                    marginTop: "0vmin",
+                    marginLeft:
+                      window.innerWidth < 480 ? "-13vmin" : "-14.5vmin",
+                  }}
                 />
                 <img
                   id={"green"}
                   src={player3}
                   alt={"green"}
-                  className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{ marginTop: "0vmin", marginLeft: "-14.5vmin" }}
+                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20"
+                  style={{
+                    marginTop: "0vmin",
+                    marginLeft:
+                      window.innerWidth < 480 ? "-13vmin" : "-14.5vmin",
+                  }}
                 />
               </>
             ) : (
@@ -107,29 +129,45 @@ const Layout = ({ selected, setDirection }) => {
                   id={"red"}
                   src={player1}
                   alt={"red"}
-                  className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{ marginTop: "0vmin", marginLeft: "-14.5vmin" }}
+                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20"
+                  style={{
+                    marginTop: "0vmin",
+                    marginLeft:
+                      window.innerWidth < 480 ? "-13vmin" : "-14.5vmin",
+                  }}
                 />
                 <img
                   id={"blue"}
                   src={player2}
                   alt={"blue"}
-                  className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{ marginTop: "0vmin", marginLeft: "-14.5vmin" }}
+                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20"
+                  style={{
+                    marginTop: "0vmin",
+                    marginLeft:
+                      window.innerWidth < 480 ? "-13vmin" : "-14.5vmin",
+                  }}
                 />
                 <img
                   id={"green"}
                   src={player3}
                   alt={"green"}
-                  className="absolute w-[45px] top-[76vmin] left-4"
-                  style={{ marginTop: "0vmin", marginLeft: "-14.5vmin" }}
+                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20"
+                  style={{
+                    marginTop: "0vmin",
+                    marginLeft:
+                      window.innerWidth < 480 ? "-13vmin" : "-14.5vmin",
+                  }}
                 />
                 <img
                   id={"black"}
                   src={player4}
                   alt={"black"}
-                  className="absolute w-[45px] top-[76vmin] left-4 z-10"
-                  style={{ marginTop: "0vmin", marginLeft: "-14.5vmin" }}
+                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20"
+                  style={{
+                    marginTop: "0vmin",
+                    marginLeft:
+                      window.innerWidth < 480 ? "-13vmin" : "-14.5vmin",
+                  }}
                 />
               </>
             )}
@@ -140,7 +178,7 @@ const Layout = ({ selected, setDirection }) => {
                   src={item?.icon}
                   key={index}
                   alt={item?.name}
-                  className="absolute w-[45px] top-[76vmin] left-4"
+                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20"
                 />
               );
             })} */}
@@ -150,11 +188,33 @@ const Layout = ({ selected, setDirection }) => {
               return (
                 <div
                   key={index}
-                  className="bg-[#ffffcf] border-[1px] border-[#e5c851] h-[40px] md:h-[51px] w-full px-1 font-bold first:text-[16px] text-[12px] md:text-[16px] first:md:text-[30px] first:text-center text_one"
+                  className="bg-[#ffffcf] border-[1px] border-[#e5c851] h-[40px] md:h-[51px] w-full px-1 font-bold first:text-[16px] text-[12px] md:text-[16px] first:md:text-[30px] first:text-center text_one relative"
                 >
                   <span className="relative z-10 text-[#212121]">
-                  {item.value}
+                    {item.value}
                   </span>
+                  {index === 90 && (
+                    <span>
+                      <img
+                        src={aadahIcon}
+                        className="absolute top-0 mix-blend-difference"
+                        alt="aadha full"
+                        width={50}
+                        height={50}
+                      />
+                    </span>
+                  )}
+                  {/* {index === 99 && (
+                    <span>
+                      <img
+                        src={upIcon}
+                        className="absolute top-1 left-12 drop-shadow-[0px_1px_2px_#000000] rotate-180 scale-x-50"
+                        alt="up"
+                        width={40}
+                        height={40}
+                      />
+                    </span>
+                  )} */}
                 </div>
               );
             })}

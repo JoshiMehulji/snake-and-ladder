@@ -25,6 +25,8 @@ const Dice = ({
   const [turnMessage, setTurnMessage] = useState("Red player's turn");
   const [cubeStyle, setCubeStyle] = useState("");
   const playRef = useRef();
+  const leftValue = window?.innerWidth < 480 ? "9" : "14.5";
+  const leftDirectionVal = window.innerWidth < 480 ? 80 : 130.5;
 
   useEffect(() => {
     const handlePlay = (event) => {
@@ -38,7 +40,7 @@ const Dice = ({
         playRef?.current?.contains(event?.target) &&
         !play
       ) {
-        alert("Please click on the play button.");
+        alert("खेल शुरू करने के लिए आओ खेले बटन पर क्लिक करे|");
       }
     };
 
@@ -73,16 +75,23 @@ const Dice = ({
         } else {
           if (!winners[wonBy]) {
             const updatedWinners = { ...winners, [wonBy]: true };
+            setShowModal(true);
+            setModalText(
+              "Congratulations\n आधा फुल कॉमिक्स के सभी संदेश समझ लिए"
+            );
             if (
               Object.entries(updatedWinners).every(
                 ([key, value]) => value == true
               )
             ) {
-              setShowModal(true);
-              setModalText("Game Over");
+              setWinners(updatedWinners);
               setTimeout(() => {
-                setPlayerSelected(false);
-              }, 1000);
+                setShowModal(true);
+                setModalText("Game Over");
+                setTimeout(() => {
+                  setPlayerSelected(false);
+                }, 10000);
+              }, 5000);
               return;
             } else {
               setWinners(updatedWinners);
@@ -266,10 +275,10 @@ const Dice = ({
           String(marginTop() - 8.6) + "vmin";
       } else if (direction == "right") {
         document.getElementById(`${turn}`).style.marginLeft =
-          String(marginLeft() + 14.5) + "vmin";
+          String(marginLeft() + parseFloat(leftValue)) + "vmin";
       } else if (direction == "left") {
         document.getElementById(`${turn}`).style.marginLeft =
-          String(marginLeft() - 14.5) + "vmin";
+          String(marginLeft() - parseFloat(leftValue)) + "vmin";
       }
       // }
       await new Promise((resolve) => setTimeout(resolve, 400));
@@ -280,7 +289,7 @@ const Dice = ({
   function getDirection() {
     let direction;
     if (
-      (marginLeft() == 130.5 &&
+      (marginLeft() == leftDirectionVal &&
         ((marginTop() * 10) % (-17.2 * 10)) / 10 == 0) ||
       (marginLeft() == 0 && ((marginTop() * 10) % (-17.2 * 10)) / 10 != 0)
     ) {
@@ -330,7 +339,7 @@ const Dice = ({
 
   return (
     <div className="flex gap-4 justify-center flex-col items-center">
-      <div ref={playRef}> 
+      <div ref={playRef}>
         <div
           id="side"
           className={clsx(
@@ -376,7 +385,7 @@ const Dice = ({
             className="bg-black text-white cursor-pointer py-2 px-8 uppercase rounded-md font-semibold w-full"
             onClick={() => setPlay(true)}
           >
-            Play
+            आओ खेलें
           </button>
         </div>
       )}

@@ -1,5 +1,5 @@
 body{
-  max-width: 1480px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
@@ -94,6 +94,28 @@ body{
 #bottom{
   transform: rotateX(90deg) translateY(4vmin);
   transform-origin: bottom;
+}
+
+.top-triangle::before{
+  content: "";
+  position: absolute;
+  top: -10;
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #fffff6;
+}
+
+.bottom-triangle::after{
+  content: "";
+  position: absolute;
+  bottom: 10;
+  width: 0; 
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #fffff6;
 }
 
 

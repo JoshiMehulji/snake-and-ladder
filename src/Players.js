@@ -7,8 +7,7 @@ const Players = ({ setPlayerSelected, setSelected, selected }) => {
     <React.Fragment>
       <div className="flex flex-col justify-center h-[60vh]">
         <div>
-          <p className="text-red-500 md:text-xl font-bold italic flex justify-around">
-            <span>आओ खेलें</span>
+          <p className="text-red-500 md:text-xl font-bold italic flex justify-center">
             <span> सेल्फ एस्टीम एंड बॉडी कॉन्फिडेंस</span>
           </p>
         </div>
