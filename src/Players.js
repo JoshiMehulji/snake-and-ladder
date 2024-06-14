@@ -5,7 +5,7 @@ import RSCERT from "./assets/RSCERT-logo.jpeg";
 const Players = ({ setPlayerSelected, setSelected, selected }) => {
   return (
     <React.Fragment>
-      <div className="flex flex-col justify-center h-[60vh]">
+      <div className="flex flex-col justify-center h-[60vh] w-[60%]">
         <div>
           <p className="text-red-500 md:text-xl font-bold italic flex justify-center">
             <span> सेल्फ एस्टीम एंड बॉडी कॉन्फिडेंस</span>
@@ -68,11 +68,11 @@ const Players = ({ setPlayerSelected, setSelected, selected }) => {
             </div>
           </div>
         </div>
-        <div className="flex justify-around">
+        <div className="flex justify-around items-center">
           <img
             src={RSCERT}
             alt="RSCERT"
-            className="w-[60px] h-[30px] object-fill"
+            className="w-[100px] h-[100px] object-contain"
           />
           <p className="text-black font-bold md:text-xl text-center italic flex justify-around">
             राजस्थान राज्य शैक्षिक अनुसंधान एवं प्रशिक्षण परिषद्, उदयपुर
@@ -80,7 +80,7 @@ const Players = ({ setPlayerSelected, setSelected, selected }) => {
           <img
             src={unicef}
             alt="unicef"
-            className="w-[100px] h-[30px] object-contain"
+            className="w-[110px] h-[100px] object-contain"
           />
         </div>
       </div>

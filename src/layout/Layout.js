@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  blockData,
   boxLayout,
   ladderData,
   players,
@@ -68,7 +67,7 @@ const Layout = ({ selected, setDirection }) => {
                   id={"red"}
                   src={player1}
                   alt={"red"}
-                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20"
+                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20 transition-all duration-500"
                   style={{
                     marginTop: "0vmin",
                     marginLeft:
@@ -79,7 +78,7 @@ const Layout = ({ selected, setDirection }) => {
                   id={"blue"}
                   src={player2}
                   alt={"blue"}
-                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20"
+                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20 transition-all duration-500"
                   style={{
                     marginTop: "0vmin",
                     marginLeft:
@@ -93,7 +92,7 @@ const Layout = ({ selected, setDirection }) => {
                   id={"red"}
                   src={player1}
                   alt={"red"}
-                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20"
+                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20 transition-all duration-500"
                   style={{
                     marginTop: "0vmin",
                     marginLeft:
@@ -104,7 +103,7 @@ const Layout = ({ selected, setDirection }) => {
                   id={"blue"}
                   src={player2}
                   alt={"blue"}
-                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20"
+                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20 transition-all duration-500"
                   style={{
                     marginTop: "0vmin",
                     marginLeft:
@@ -115,7 +114,7 @@ const Layout = ({ selected, setDirection }) => {
                   id={"green"}
                   src={player3}
                   alt={"green"}
-                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20"
+                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20 transition-all duration-500"
                   style={{
                     marginTop: "0vmin",
                     marginLeft:
@@ -129,7 +128,7 @@ const Layout = ({ selected, setDirection }) => {
                   id={"red"}
                   src={player1}
                   alt={"red"}
-                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20"
+                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20 transition-all duration-500"
                   style={{
                     marginTop: "0vmin",
                     marginLeft:
@@ -140,7 +139,7 @@ const Layout = ({ selected, setDirection }) => {
                   id={"blue"}
                   src={player2}
                   alt={"blue"}
-                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20"
+                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20 transition-all duration-500"
                   style={{
                     marginTop: "0vmin",
                     marginLeft:
@@ -151,7 +150,7 @@ const Layout = ({ selected, setDirection }) => {
                   id={"green"}
                   src={player3}
                   alt={"green"}
-                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20"
+                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20 transition-all duration-500"
                   style={{
                     marginTop: "0vmin",
                     marginLeft:
@@ -162,7 +161,7 @@ const Layout = ({ selected, setDirection }) => {
                   id={"black"}
                   src={player4}
                   alt={"black"}
-                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20"
+                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20 transition-all duration-500"
                   style={{
                     marginTop: "0vmin",
                     marginLeft:
@@ -178,7 +177,7 @@ const Layout = ({ selected, setDirection }) => {
                   src={item?.icon}
                   key={index}
                   alt={item?.name}
-                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20"
+                  className="absolute w-[32px] md:w-[45px] top-[93vmin] md:top-[76vmin] left-[18px] md:left-4 z-20 transition-all duration-500"
                 />
               );
             })} */}
@@ -190,7 +189,7 @@ const Layout = ({ selected, setDirection }) => {
                   key={index}
                   className="bg-[#ffffcf] border-[1px] border-[#e5c851] h-[40px] md:h-[51px] w-full px-1 font-bold first:text-[16px] text-[12px] md:text-[16px] first:md:text-[30px] first:text-center text_one relative"
                 >
-                  <span className="relative z-10 text-[#212121]">
+                  <span className="relative z-10 bg-[#ffffcf] rounded-full text-[#212121]">
                     {item.value}
                   </span>
                   {index === 90 && (

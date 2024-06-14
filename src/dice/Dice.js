@@ -18,6 +18,7 @@ const Dice = ({
   setWinners,
   setPlayerSelected,
   setModalTextColor,
+  setShowCelebrationGif
 }) => {
   const [turn, setTurn] = useState("red");
   const [stopEvent, setStopEvent] = useState(false);
@@ -25,16 +26,15 @@ const Dice = ({
   const [turnMessage, setTurnMessage] = useState("Red player's turn");
   const [cubeStyle, setCubeStyle] = useState("");
   const playRef = useRef();
-  const leftValue = window?.innerWidth < 480 ? "9" : "14.5";
-  const leftDirectionVal = window.innerWidth < 480 ? 80 : 130.5;
+  const leftValue = window?.innerWidth < 480 ? 9.5 : 14.5;
+  const topValue = window?.innerWidth < 480 ? 10 : 8.6;
+  const leftDirectionVal = window.innerWidth < 480 ? 82 : 130.5;
+  const topDirectionVal = window.innerWidth < 480 ? 20 : 17.2;
+  const rightDirectionVal = window.innerWidth < 480 ? -3.5 : 0;
+  const topWinVal = window.innerWidth < 480 ? 90 : 77.4;
 
   useEffect(() => {
     const handlePlay = (event) => {
-      console.log(
-        playRef?.current,
-        playRef?.current?.contains(event.target),
-        !play
-      );
       if (
         playRef?.current &&
         playRef?.current?.contains(event?.target) &&
@@ -78,7 +78,8 @@ const Dice = ({
             setShowModal(true);
             setModalText(
               "Congratulations\n आधा फुल कॉमिक्स के सभी संदेश समझ लिए"
-            );
+              );
+            // setShowCelebrationGif(true);
             if (
               Object.entries(updatedWinners).every(
                 ([key, value]) => value == true
@@ -113,7 +114,7 @@ const Dice = ({
   };
 
   function checkwin() {
-    if (marginTop() === -77.4 && marginLeft() === 0) {
+    if (marginTop() === -topWinVal && marginLeft() === rightDirectionVal) {
       // Assuming "turn" is a state variable
       setTurnMessage(`${turn} player wins!`);
       new Audio(won).play();
@@ -126,8 +127,8 @@ const Dice = ({
   function checkRange(diceNum) {
     let isOutOfRange = false;
     if (
-      marginTop() == -77.4 &&
-      marginLeft() + Number((diceNum * -14.5).toFixed(1)) < 0
+      marginTop() == -topWinVal &&
+      marginLeft() + Number((diceNum * -leftValue).toFixed(1)) < 0
     ) {
       isOutOfRange = true;
     }
@@ -253,12 +254,14 @@ const Dice = ({
           setShowModal(true);
           setModalText(froms[i][2]);
           setModalTextColor(froms[i][3] === "GREEN" ? "green" : "red");
-          document.getElementById(
-            `${turn}`
-          ).style.marginLeft = `${tos[i][0]}vmin`;
-          document.getElementById(
-            `${turn}`
-          ).style.marginTop = `${tos[i][1]}vmin`;
+          setTimeout(() => {
+            document.getElementById(
+              `${turn}`
+            ).style.marginLeft = `${tos[i][0]}vmin`;
+            document.getElementById(
+              `${turn}`
+            ).style.marginTop = `${tos[i][1]}vmin`;
+          }, 5500);
           await new Promise((resolve) => setTimeout(resolve, 400));
           break;
         }
@@ -272,7 +275,7 @@ const Dice = ({
       // if (document.querySelector(`${turn}`)) {
       if (direction == "up") {
         document.getElementById(`${turn}`).style.marginTop =
-          String(marginTop() - 8.6) + "vmin";
+          String(marginTop() - topValue) + "vmin";
       } else if (direction == "right") {
         document.getElementById(`${turn}`).style.marginLeft =
           String(marginLeft() + parseFloat(leftValue)) + "vmin";
@@ -290,11 +293,12 @@ const Dice = ({
     let direction;
     if (
       (marginLeft() == leftDirectionVal &&
-        ((marginTop() * 10) % (-17.2 * 10)) / 10 == 0) ||
-      (marginLeft() == 0 && ((marginTop() * 10) % (-17.2 * 10)) / 10 != 0)
+        ((marginTop() * 10) % (-topDirectionVal * 10)) / 10 == 0) ||
+      (marginLeft() == rightDirectionVal &&
+        ((marginTop() * 10) % (-topDirectionVal * 10)) / 10 != 0)
     ) {
       direction = "up";
-    } else if (((marginTop() * 10) % (-17.2 * 10)) / 10 == 0) {
+    } else if (((marginTop() * 10) % (-topDirectionVal * 10)) / 10 == 0) {
       direction = "right";
     } else {
       direction = "left";

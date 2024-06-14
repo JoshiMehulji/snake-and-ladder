@@ -14,6 +14,7 @@ function App() {
   const [showModal, setShowModal] = useState(false);
   const [modalText, setModalText] = useState("");
   const [modalTextColor, setModalTextColor] = useState("red");
+  const [showCelebrationGif, setShowCelebrationGif] = useState(false);
   const [winners, setWinners] = useState(
     localStorage.getItem("player") === "two"
       ? {
@@ -36,7 +37,7 @@ function App() {
 
   return (
     <React.Fragment>
-      {showModal && <Modal setShowModal={setShowModal} modalText={modalText} modalTextColor={modalTextColor} />}
+      {showModal && <Modal setShowModal={setShowModal} modalText={modalText} modalTextColor={modalTextColor} setShowCelebrationGif={setShowCelebrationGif} showCelebrationGif={showCelebrationGif} />}
       {playerSelected ? (
         <div className="flex flex-col md:flex-row justify-between p-2 gap-4 h-screen">
           <div className="w-[15%] hidden lg:flex items-center">
