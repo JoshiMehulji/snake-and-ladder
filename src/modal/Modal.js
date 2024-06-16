@@ -32,7 +32,7 @@ const Modal = ({
             <p
               id="modal-text"
               className={clsx(
-                "font-bold text-[20px] md:text-[24px] text-center italic",
+                "font-bold text-[20px] md:text-[24px] text-center italic whitespace-pre-line",
                 modalTextColor === "red" ? "text-red-500" : "text-green-500"
               )}
             >

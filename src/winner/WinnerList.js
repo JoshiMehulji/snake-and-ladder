@@ -5,7 +5,7 @@ const WinnerList = ({ winners }) => {
   return (
     <React.Fragment>
       <div className="bg-[#ffffcf] border-2 border-black w-full p-4">
-        <p className="text-center font-bold mb-4">बॉडी कॉन्फिडेंस चैंपियन:</p>
+        <p className="text-center font-bold mb-4">बॉडी कॉन्फिडेंस चैम्पियन:</p>
         <div className="grid gap-2">
           {Object.entries(winners)?.map((item, index) => {
             if (item[1]) {

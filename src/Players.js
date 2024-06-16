@@ -5,7 +5,7 @@ import RSCERT from "./assets/RSCERT-logo.jpeg";
 const Players = ({ setPlayerSelected, setSelected, selected }) => {
   return (
     <React.Fragment>
-      <div className="flex flex-col justify-center h-[60vh] w-[60%]">
+      <div className="w-[98%] flex flex-col justify-center h-[60vh] w-[60%]">
         <div>
           <p className="text-red-500 md:text-xl font-bold italic flex justify-center">
             <span> सेल्फ एस्टीम एंड बॉडी कॉन्फिडेंस</span>
@@ -68,7 +68,7 @@ const Players = ({ setPlayerSelected, setSelected, selected }) => {
             </div>
           </div>
         </div>
-        <div className="flex justify-around items-center">
+        <div className="flex justify-around items-center gap-[10px]">
           <img
             src={RSCERT}
             alt="RSCERT"

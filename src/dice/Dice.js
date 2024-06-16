@@ -26,12 +26,9 @@ const Dice = ({
   const [turnMessage, setTurnMessage] = useState("Red player's turn");
   const [cubeStyle, setCubeStyle] = useState("");
   const playRef = useRef();
-  const leftValue = window?.innerWidth < 480 ? 9.5 : 14.5;
-  const topValue = window?.innerWidth < 480 ? 10 : 8.6;
-  const leftDirectionVal = window.innerWidth < 480 ? 82 : 130.5;
-  const topDirectionVal = window.innerWidth < 480 ? 20 : 17.2;
-  const rightDirectionVal = window.innerWidth < 480 ? -3.5 : 0;
-  const topWinVal = window.innerWidth < 480 ? 90 : 77.4;
+  const leftValue = 9.5;
+  const topValue = 9.5;
+  const leftDirectionVal = 85.5;
 
   useEffect(() => {
     const handlePlay = (event) => {
@@ -76,8 +73,9 @@ const Dice = ({
           if (!winners[wonBy]) {
             const updatedWinners = { ...winners, [wonBy]: true };
             setShowModal(true);
+            setModalTextColor("GREEN");
             setModalText(
-              "Congratulations\n आधा फुल कॉमिक्स के सभी संदेश समझ लिए"
+              "Congratulations\n आधाफुल कॉमिक्स के सभी संदेश समझ लिए"
               );
             // setShowCelebrationGif(true);
             if (
@@ -86,12 +84,12 @@ const Dice = ({
               )
             ) {
               setWinners(updatedWinners);
+              // setTimeout(() => {
+              //   setShowModal(true);
+              //   setModalText("Game Over");
+              // }, 5000);
               setTimeout(() => {
-                setShowModal(true);
-                setModalText("Game Over");
-                setTimeout(() => {
-                  setPlayerSelected(false);
-                }, 10000);
+                setPlayerSelected(false);
               }, 5000);
               return;
             } else {
@@ -114,7 +112,7 @@ const Dice = ({
   };
 
   function checkwin() {
-    if (marginTop() === -topWinVal && marginLeft() === rightDirectionVal) {
+    if (marginTop() === -85.5 && marginLeft() === 0) {
       // Assuming "turn" is a state variable
       setTurnMessage(`${turn} player wins!`);
       new Audio(won).play();
@@ -127,8 +125,8 @@ const Dice = ({
   function checkRange(diceNum) {
     let isOutOfRange = false;
     if (
-      marginTop() == -topWinVal &&
-      marginLeft() + Number((diceNum * -leftValue).toFixed(1)) < 0
+      marginTop() == -85.5 &&
+      marginLeft() + Number((diceNum * -9.5).toFixed(1)) < 0
     ) {
       isOutOfRange = true;
     }
@@ -200,54 +198,54 @@ const Dice = ({
     return new Promise(async (resolve, reject) => {
       let froms = [
         // ladder below
-        [43.5, 0, "बॉडी टॉक नहीं करना चाहिए", "GREEN"],
-        [87, 0, "कक्षा में लड़के-लड़की शामिल बैठाने चाहिए", "GREEN"],
-        [87, -17.2, "लड़के-लड़की दोनों की समान भागीदारी", "GREEN"],
-        [116, -17.2, "खाना सभी बना सकते है", "GREEN"],
-        [43.5, -34.4, "कभी किसी को चिढ़ाना नहीं चाहिए", "GREEN"],
-        [116, -43, "सम्मान करते समय गुण देखे, रंग रूप नहीं", "GREEN"],
-        [87, -51.6, "लड़के-लड़की दोनों भारी काम कर सकते है", "GREEN"],
-        [43.5, -60.2, "हर रूप रंग के व्यक्ति का सम्मान करें", "GREEN"],
-        [14.5, -68.8, "सभी कॉमिक्स के सन्देश समझ कर अमल कर रहे है", "GREEN"],
+        [28.5, 0, "बॉडी टॉक नहीं करना चाहिए", "GREEN"],
+        [57, 0, "कक्षा में लड़के-लड़कियाँ शामिल बैठाने चाहिए", "GREEN"],
+        [57, -19, "लड़के-लड़की दोनों की समान भागीदारी", "GREEN"],
+        [76, -19, "खाना सभी बना सकते हैं", "GREEN"],
+        [28.5, -38, "कभी किसी को चिढ़ाना नहीं चाहिए", "GREEN"],
+        [76, -47.5, "सम्मान करते समय गुण देखे, रंग-रूप नहीं", "GREEN"],
+        [57, -57, "लड़के-लड़कियाँ दोनों भारी काम कर सकते हैं", "GREEN"],
+        [28.5, -66.5, "हर रूप-रंग के व्यक्ति का सम्मान करें", "GREEN"],
+        [9.5, -76, "सभी कॉमिक्स के सन्देश समझ कर अमल कर रहे हैं", "GREEN"],
         // snake below
-        [0, -17.2, "गोरा होने के लिए क्रीम जरुरी है", "RED"],
-        [29, -25.8, "पानी भरना केवल लड़को का काम है", "RED"],
-        [87, -34.4, "किसी के शरीर से जुडी बात कहना", "RED"],
-        [130.5, -34.4, "वह मोटी है दौड़ नहीं सकेगी", "RED"],
-        [58, -43, "गाड़ी चलाना लड़को का काम है", "RED"],
-        [130.5, -51.6, "शेर जैसा बालक", "RED"],
-        [0, -43, "हिरनी जैसी चाल", "RED"],
-        [14.5, -60.2, "रंग-रूप, कद-काठी, से शिक्षा में बाधा है ", "RED"],
-        [87, -60.2, "छोटा कद कार्य में बाधक है", "RED"],
-        [43.5, -77.4, "घर का कार्य लड़कियाँ ही कर सकती है।", "RED"],
-        [72.5, -77.4, "लड़के-लड़की में भेद करना", "RED"],
-        [101.5, -77.4, "कपड़े धोने का काम लड़के ही कर सकते है", "RED"],
+        [0, -19, "गोरा होने के लिए क्रीम जरुरी है", "RED"],
+        [19, -28.5, "पानी भरना केवल लड़कियों का काम हैं", "RED"],
+        [57, -38, "किसी के शरीर से जुडी बात कहना", "RED"],
+        [88.5, -38, "वह मोटी है दौड़ नहीं सकेगी", "RED"],
+        [38, -47.5, "गाड़ी चलाना लड़को का काम हैं", "RED"],
+        [0, -47.5, "शेर जैसा बालक", "RED"],
+        [85.5, -57, "हिरनी जैसी चाल", "RED"],
+        [57, -66.5, "रंग-रूप, कद-काठी, से शिक्षा में बाधा ", "RED"],
+        [9.5, -66.5, "छोटा कद कार्य में बाधक है", "RED"],
+        [66.5, -85.5, "घर का कार्य लड़कियाँ ही कर सकती हैं।", "RED"],
+        [47.5, -85.5, "लड़के-लड़की में भेद करना", "RED"],
+        [28.5, -85.5, "कपड़े धोने का काम लड़के ही कर सकते हैं", "RED"],
       ];
 
       let tos = [
         // ladder below
-        [14.5, -25.8],
-        [58, -25.8],
-        [58, -51.6],
-        [101.5, -51.6],
-        [29, -60.2],
-        [116, -77.4],
-        [58, -77.4],
-        [29, -77.4],
-        [14.5, -77.4],
+        [9.5, -28.5],
+        [38, -28.5],
+        [38, -57],
+        [66.5, -57],
+        [19, -66.5],
+        [76, -85.5],
+        [57, -85.5],
+        [19, -85.5],
+        [9.5, -85.5],
         // // snake below
-        [29, 0],
-        [72.5, 0],
-        [101.5, 0],
-        [87, -8.6],
-        [43.5, -8.6],
-        [130.5, -25.8],
-        [43.5, -25.8],
-        [14.5, -25.8],
-        [130.5, -43],
-        [72.5, -51.6],
-        [101.5, -51.6],
-        [130.5, -60.2],
+        [19, 0],
+        [47, 0],
+        [66.5, 0],
+        [57, -9.5],
+        [28.5, -9.5],
+        [85.5, -28.5],
+        [28.5, -28.5],
+        [9.5, -28.5],
+        [85.5, -47.5],
+        [85.5, -66.5],
+        [47.5, -57],
+        [66.5, -57],
       ];
       for (let i = 0; i < tos.length; i++) {
         if (marginLeft() == froms[i][0] && marginTop() == froms[i][1]) {
@@ -293,12 +291,12 @@ const Dice = ({
     let direction;
     if (
       (marginLeft() == leftDirectionVal &&
-        ((marginTop() * 10) % (-topDirectionVal * 10)) / 10 == 0) ||
-      (marginLeft() == rightDirectionVal &&
-        ((marginTop() * 10) % (-topDirectionVal * 10)) / 10 != 0)
+        ((marginTop() * 10) % (-19 * 10)) / 10 == 0) ||
+      (marginLeft() == 0 &&
+        ((marginTop() * 10) % (-19 * 10)) / 10 != 0)
     ) {
       direction = "up";
-    } else if (((marginTop() * 10) % (-topDirectionVal * 10)) / 10 == 0) {
+    } else if (((marginTop() * 10) % (-19 * 10)) / 10 == 0) {
       direction = "right";
     } else {
       direction = "left";
@@ -343,7 +341,7 @@ const Dice = ({
 
   return (
     <div className="flex gap-4 justify-center flex-col items-center">
-      <div ref={playRef}>
+      <div ref={playRef} className="w-full">
         <div
           id="side"
           className={clsx(

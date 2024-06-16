@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "./layout/Layout";
 import Dice from "./dice/Dice";
 import WinnerList from "./winner/WinnerList";
@@ -15,31 +15,35 @@ function App() {
   const [modalText, setModalText] = useState("");
   const [modalTextColor, setModalTextColor] = useState("red");
   const [showCelebrationGif, setShowCelebrationGif] = useState(false);
-  const [winners, setWinners] = useState(
-    localStorage.getItem("player") === "two"
-      ? {
-          red: false,
-          blue: false,
-        }
-      : localStorage.getItem("player") === "three"
-      ? {
-          red: false,
-          blue: false,
-          green: false,
-        }
-      : {
-          red: false,
-          blue: false,
-          green: false,
-          black: false,
-        }
-  );
+  const [winners, setWinners] = useState();
+
+  useEffect(()=>{
+    setWinners(
+      localStorage.getItem("player") == "two"
+        ? {
+            red: false,
+            blue: false,
+          }
+        : localStorage.getItem("player") == "three"
+        ? {
+            red: false,
+            blue: false,
+            green: false,
+          }
+        : {
+            red: false,
+            blue: false,
+            green: false,
+            black: false,
+          }
+    )
+  }, [localStorage, selected]);
 
   return (
     <React.Fragment>
       {showModal && <Modal setShowModal={setShowModal} modalText={modalText} modalTextColor={modalTextColor} setShowCelebrationGif={setShowCelebrationGif} showCelebrationGif={showCelebrationGif} />}
       {playerSelected ? (
-        <div className="flex flex-col md:flex-row justify-between p-2 gap-4 h-screen">
+        <div className="flex flex-col md:flex-row justify-between p-2 gap-4 h-[70vh] md:h-screen">
           <div className="w-[15%] hidden lg:flex items-center">
             <Dice
               selected={selected}
@@ -52,14 +56,14 @@ function App() {
               setModalTextColor={setModalTextColor}
             />
           </div>
-          <div className="w-full lg:w-[70%] overflow-hidden m-auto">
+          <div className="w-full lg:w-[45%] h-full overflow-hidden m-auto">
             <Layout selected={selected} setDirection={setDirection} />
           </div>
           <div className="lg:w-[15%] flex md:flex-col lg:flex-row items-center gap-4">
             <div className="w-[50%] md:w-full">
               <WinnerList winners={winners} setWinners={setWinners} />
             </div>
-            <div className="lg:hidden w-full lg:w-[50%]">
+            <div className="lg:hidden w-[50%]">
               <Dice
                 selected={selected}
                 direction={direction}
