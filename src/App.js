@@ -43,8 +43,8 @@ function App() {
     <React.Fragment>
       {showModal && <Modal setShowModal={setShowModal} modalText={modalText} modalTextColor={modalTextColor} setShowCelebrationGif={setShowCelebrationGif} showCelebrationGif={showCelebrationGif} />}
       {playerSelected ? (
-        <div className="flex flex-col md:flex-row justify-between p-2 gap-4 h-[70vh] md:h-screen">
-          <div className="w-[15%] hidden lg:flex items-center">
+        <div className="flex flex-col xl:flex-row justify-between p-2 gap-4 h-screen">
+          <div className="w-[15%] hidden xl:flex items-center">
             <Dice
               selected={selected}
               direction={direction}
@@ -56,14 +56,14 @@ function App() {
               setModalTextColor={setModalTextColor}
             />
           </div>
-          <div className="w-full lg:w-[45%] h-full overflow-hidden m-auto">
+          <div className="w-full sm:w-[96%] xl:w-[45%] h-full overflow-hidden m-auto">
             <Layout selected={selected} setDirection={setDirection} />
           </div>
-          <div className="lg:w-[15%] flex md:flex-col lg:flex-row items-center gap-4">
+          <div className="xl:w-[15%] flex sm:flex-col md:flex-row items-center gap-4">
             <div className="w-[50%] md:w-full">
               <WinnerList winners={winners} setWinners={setWinners} />
             </div>
-            <div className="lg:hidden w-[50%]">
+            <div className="xl:hidden w-[50%]">
               <Dice
                 selected={selected}
                 direction={direction}

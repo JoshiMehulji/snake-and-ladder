@@ -14,19 +14,19 @@ import player4 from "../assets/black.png";
 
 export const ladderData = [
   {
-    transform: "scaleX(0.4) scaleY(0.57) rotate(-40deg)",
+    transform: "scaleX(0.4) scaleY(0.6) rotate(-42deg)",
     top: "29%",
     left: "-25%",
   },
   {
-    transform: "scaleX(0.4) scaleY(0.57) rotate(140deg)",
+    transform: "scaleX(0.4) scaleY(0.6) rotate(138deg)",
     top: "31%",
     left: "4.5%",
   },
   {
-    transform: "scaleX(0.36) scaleY(0.9) rotate(136deg)",
+    transform: "scaleX(0.48) scaleY(0.8) rotate(142deg)",
     top: "6%",
-    left: "5%",
+    left: "4%",
   },
   {
     transform: "scaleX(0.45) scaleY(0.64) rotate(-18deg)",
@@ -39,9 +39,9 @@ export const ladderData = [
     left: "-20%",
   },
   {
-    transform: "scaleX(0.4) scaleY(0.57) rotate(0deg)",
-    top: "-25%",
-    left: "36%",
+    transform: "scaleX(0.4) scaleY(0.62) rotate(0deg)",
+    top: "-24%",
+    left: "37%",
   },
   {
     transform: "scaleX(0.45) scaleY(0.58) rotate(141deg)",
@@ -49,14 +49,16 @@ export const ladderData = [
     left: "5%",
   },
   {
-    transform: "scaleX(0.4) scaleY(0.3) rotate(-23deg)",
+    transform: "scaleX(0.2) scaleY(0.3) rotate(-35deg)",
     top: "-35%",
     left: "-20%",
+    isMid: true,
   },
   {
-    transform: "scaleX(0.4) scaleY(0.2) rotate(0deg)",
+    transform: "scaleX(0.4) scaleY(0.4) rotate(0deg)",
     top: "-40%",
     left: "-34%",
+    isShort: true,
   },
 ];
 

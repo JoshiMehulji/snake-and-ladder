@@ -6,6 +6,8 @@ import {
   snakeData,
 } from "./blockData";
 import ladder from "../assets/ladder.png";
+import shortLadder from "../assets/ladder2.png";
+import midLadder from "../assets/ladder3.png";
 import player1 from "../assets/red.png";
 import player2 from "../assets/blue.png";
 import player3 from "../assets/green.png";
@@ -21,7 +23,7 @@ const Layout = ({ selected, setDirection }) => {
             {ladderData?.map((item, index) => {
               return (
                 <img
-                  src={ladder}
+                  src={item?.isShort ? shortLadder : item?.isMid ? midLadder : ladder}
                   key={index}
                   alt="ladder"
                   className={`absolute h-full w-full object-contain z-10`}
@@ -158,7 +160,7 @@ const Layout = ({ selected, setDirection }) => {
               return (
                 <div
                   key={index}
-                  className="bg-[#ffffcf] border-[1px] border-[#e5c851] h-[9.5vmin] w-full px-1 font-bold first:text-[16px] text-[12px] md:text-[16px] first:md:text-[30px] first:text-center text_one relative"
+                  className="bg-[#ffffcf] border-[1px] border-[#e5c851] h-[9.5vmin] w-[9.5vmin] px-1 font-bold first:text-[16px] text-[12px] md:text-[16px] first:md:text-[30px] first:text-center text_one relative"
                 >
                   <span className="relative z-10 bg-[#ffffcf] rounded-full text-[#212121]">
                     {item.value}
